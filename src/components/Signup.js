@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './Signup.css';
+import Choices from './Choices';
 
 class Signup extends Component {
 
@@ -10,40 +12,27 @@ class Signup extends Component {
 
     render() {
         return (
-            <form style={formStyle}>
-                <input
-                    type="text"
-                    name="email"
-                    placeholder="Email Id"
-                    value={this.state.email}
-                    onChange={this.onChange}
-                    style={inputStyle}
-                />
-                <input
-                    type="submit"
-                    value="Sign Me Up"
-                    style={submitButtonStyle}
-                />
-            </form>
+            <React.Fragment>
+                <Choices choices={this.props.choices} />
+                <form className="form">
+                    <input
+                        type="text"
+                        name="email"
+                        placeholder="Email Id"
+                        value={this.state.email}
+                        onChange={this.onChange}
+                        className="input"
+                    />
+                    <input
+                        type="submit"
+                        value="Sign Me Up"
+                        className="submitButton"
+                    />
+                </form>
+            </React.Fragment>
         );
 
     }
-}
-
-const formStyle = {
-    width: '500px',
-    margin: 'auto'
-}
-
-const inputStyle = {
-    width: '75%',
-    paddingRight: '100px'
-};
-
-const submitButtonStyle = {
-    width: '20%',
-    float: 'right'
-
 }
 
 export default Signup;

@@ -5,6 +5,10 @@ import SignUp from './components/Signup';
 
 class App extends Component {
 
+  state = {
+    choices: ['lorem', 'ipsum', 'dolor', 'quisquam', 'consectetur', 'adipisci', 'velit']
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -19,10 +23,12 @@ class App extends Component {
         <div className="container" style={{ paddingTop: "30px" }}>
           <div className="row">
             <div className="col-md-12">
-              <SignUp />
+              <SignUp choices={this.state.choices} />
             </div>
           </div>
         </div>
+
+
       </React.Fragment>
     );
   }

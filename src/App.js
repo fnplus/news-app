@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import SignUp from './components/Signup';
+import DetailHeader from './components/DetailHeader';
 
 
 class App extends Component {
@@ -16,6 +17,14 @@ class App extends Component {
           <div className="row">
             <div className="col-md-12">
               <Header />
+            </div>
+          </div>
+        </div>
+
+        <div className="container" style={{ paddingTop: "30px" }}>
+          <div className="row">
+            <div className="col-md-12">
+              <DetailHeader />
             </div>
           </div>
         </div>

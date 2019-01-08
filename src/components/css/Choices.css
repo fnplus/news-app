@@ -1,11 +1,12 @@
 .choices-main{
     width: 50%;
     margin: auto;
+    margin-bottom: 40px;
 }
 
 .choice-option{
     width: 50%;
-    margin: auto;
+    /* margin: auto; */
     padding-bottom: 10px;
 }
 

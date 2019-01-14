@@ -13,30 +13,11 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="container" style={{ paddingTop: "30px" }}>
-          <div className="row">
-            <div className="col-md-12">
-              <Header />
-            </div>
-          </div>
-        </div>
 
-        <div className="container" style={{ paddingTop: "30px" }}>
-          <div className="row">
-            <div className="col-md-12">
-              <DetailHeader />
-            </div>
-          </div>
-        </div>
+        <Header />
 
-        <div className="container" style={{ paddingTop: "30px" }}>
-          <div className="row">
-            <div className="col-md-12">
-              <SignUp choices={this.state.choices} />
-            </div>
-          </div>
-        </div>
-
+        <DetailHeader />
+        <SignUp choices={this.state.choices} />
 
       </React.Fragment>
     );

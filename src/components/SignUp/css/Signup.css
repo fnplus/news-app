@@ -1,21 +1,21 @@
-.form {
+.signup-form {
     display: flex;
     width: 50%;
     margin: auto;
     margin-bottom: 40px;
 }
 
-.input {
+.signup-input {
     flex: 10;
     padding: 5px;
     font-family: 'Montserrat', sans-serif;
 }
 
-.input:hover {
+.signup-input:hover {
     outline: 0;
 }
 
-.submitButton {
+.signup-submitButton {
     flex: 1;
     font-family: 'Montserrat', sans-serif;
     color: White;
@@ -23,12 +23,12 @@
     border: none;
 }
 
-.submitButton:hover {
+.signup-submitButton:hover {
     outline: 0;
 }
 
 @media only screen and (max-width: 768px) {
-  .form{
+  .signup-form{
       width: 100%;
       margin: none;
   }

@@ -13,22 +13,28 @@ class Signup extends Component {
     render() {
         return (
             <React.Fragment>
-                <Choices choices={this.props.choices} />
-                <form className="form">
-                    <input
-                        type="text"
-                        name="email"
-                        placeholder="Email Id"
-                        value={this.state.email}
-                        onChange={this.onChange}
-                        className="input"
-                    />
-                    <input
-                        type="submit"
-                        value="Sign Me Up"
-                        className="submitButton"
-                    />
-                </form>
+                <div className="container" style={{ paddingTop: "30px" }}>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <Choices choices={this.props.choices} />
+                            <form className="form">
+                                <input
+                                    type="text"
+                                    name="email"
+                                    placeholder="Email Id"
+                                    value={this.state.email}
+                                    onChange={this.onChange}
+                                    className="input"
+                                />
+                                <input
+                                    type="submit"
+                                    value="Sign Me Up"
+                                    className="submitButton"
+                                />
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </React.Fragment>
         );
 

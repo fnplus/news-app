@@ -3,9 +3,17 @@ import React, { Component } from 'react';
 class Header extends Component {
     render() {
         return (
-            <div>
-                <a style={headerStyle} href="https://fnplus.tech">FNPLUS TECH</a>
-            </div>
+            <React.Fragment>
+                <div className="container" style={{ paddingTop: "30px" }}>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div>
+                                <a style={headerStyle} href="https://fnplus.tech">FNPLUS TECH</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </React.Fragment>
         );
     }
 }

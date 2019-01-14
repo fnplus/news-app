@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import SignUp from './components/Signup';
-import DetailHeader from './components/DetailHeader';
+import SignUp from './components/SignUp/Signup';
+import DetailHeader from './components/SignUp/DetailHeader';
 
 
 class App extends Component {

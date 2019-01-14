@@ -17,19 +17,19 @@ class Signup extends Component {
                     <div className="row">
                         <div className="col-md-12">
                             <Choices choices={this.props.choices} />
-                            <form className="form">
+                            <form className="signup-form">
                                 <input
                                     type="text"
                                     name="email"
                                     placeholder="Email Id"
                                     value={this.state.email}
                                     onChange={this.onChange}
-                                    className="input"
+                                    className="signup-input"
                                 />
                                 <input
                                     type="submit"
                                     value="Sign Me Up"
-                                    className="submitButton"
+                                    className="signup-submitButton"
                                 />
                             </form>
                         </div>

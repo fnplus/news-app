@@ -9,14 +9,23 @@ class Choices extends Component {
                     <div className="choice-option">
                         <label className="choices-container">
                             <input type="checkbox" />
-                            <div className="choice-letter">{choice}</div>
+                            <div className="choice-letter">{choice.tag}</div>
                             <span className="checkmark"></span>
                         </label>
                     </div>
                 ))}
+
+                <div style={{ paddingTop: '20px' }}>
+                    <label className="choices-container">
+                        <input type="checkbox" />
+                        <div className="choice-letter">Subscribe To All</div>
+                        <span className="checkmark"></span>
+                    </label>
+                </div>
             </div>
         );
     }
 }
+
 
 export default Choices;

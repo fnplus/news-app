@@ -1,26 +1,15 @@
 .signup-form {
-    display: flex;
     width: 50%;
     margin: auto;
     margin-bottom: 40px;
 }
 
-.signup-input {
-    flex: 10;
-    padding: 5px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.signup-input:hover {
-    outline: 0;
-}
-
 .signup-submitButton {
-    flex: 1;
     font-family: 'Montserrat', sans-serif;
     color: White;
     background-color: #333;
     border: none;
+    float: right;
 }
 
 .signup-submitButton:hover {

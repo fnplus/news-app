@@ -18,7 +18,13 @@ class App extends Component {
           <Header />
 
           <Route exact path='/' render={props => (
-            <h1 style={{ textAlign: "center", paddingTop: "30px" }}>Home</h1>
+            <React.Fragment>
+              <h1 style={{ textAlign: "center", paddingTop: "30px" }}>Home</h1>
+
+              <div style={{ textAlign: "center", paddingTop: "50px" }}>
+                <a className="btn btn-dark" href="/signup"> Sign Up</a>
+              </div>
+            </React.Fragment>
           )} />
 
           <Route exact path='/signup' render={props => (

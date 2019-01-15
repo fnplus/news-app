@@ -4,9 +4,9 @@ class Header extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="container" style={{ paddingTop: "30px" }}>
+                <div className="container">
                     <div className="row">
-                        <div className="col-md-12">
+                        <div className="col-md-12 col-sm-12">
                             <div>
                                 <a style={headerStyle} href="https://fnplus.tech">FNPLUS TECH</a>
                             </div>
@@ -25,7 +25,8 @@ const headerStyle = {
     fontWeight: "700",
     color: "#000",
     display: "block",
-    textDecoration: "none"
+    textDecoration: "none",
+    paddingTop: "40px"
 }
 
 export default Header;

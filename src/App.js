@@ -58,7 +58,8 @@ class App extends Component {
           choice.checked = !choice.checked
         }
         return choice;
-      })
+      }),
+      subscribeToAll: false
     });
   }
 

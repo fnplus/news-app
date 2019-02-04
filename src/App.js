@@ -85,6 +85,10 @@ class App extends Component {
             inline={false} />
         </div>
 
+        <form class="signup-form container">
+          <input type="submit" class="signup-submitButton" value="Sign Me Up" />
+        </form>
+
       </React.Fragment>
 
     );

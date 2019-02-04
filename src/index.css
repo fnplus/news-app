@@ -12,3 +12,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.signup-submitButton{
+  font-family: 'Montserrat', sans-serif;
+  color: White;
+  background-color: #333;
+  border: none;
+  font-size: 20px;
+}
+
+.signup-form{
+  margin-top: 30px;
+  text-align: center;
+}

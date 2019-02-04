@@ -67,18 +67,23 @@ class App extends Component {
 
   render() {
     const { tags, suggestions } = this.state;
+    let placeholder = "Choose a Keyword";
     return (
       <React.Fragment>
         <Header />
 
         <DetailHeader />
 
-        <ReactTags tags={tags}
-          suggestions={suggestions}
-          handleDelete={this.handleDelete}
-          handleAddition={this.handleAddition}
-          handleDrag={this.handleDrag}
-          delimiters={delimiters} />
+        <div className="reacttag-container container">
+          <ReactTags tags={tags}
+            placeholder={placeholder}
+            suggestions={suggestions}
+            handleDelete={this.handleDelete}
+            handleAddition={this.handleAddition}
+            handleDrag={this.handleDrag}
+            delimiters={delimiters}
+            inline={false} />
+        </div>
 
       </React.Fragment>
 

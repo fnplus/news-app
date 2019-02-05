@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import DetailHeader from './components/SignUp/DetailHeader';
+import DetailHeader from './components/DetailHeader';
 
 import { WithContext as ReactTags } from 'react-tag-input';
 
@@ -67,7 +67,7 @@ class App extends Component {
 
   render() {
     const { tags, suggestions } = this.state;
-    let placeholder = "Choose a Keyword";
+    let placeholder = "Choose Your Domains";
     return (
       <React.Fragment>
         <Header />

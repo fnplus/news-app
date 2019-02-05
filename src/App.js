@@ -4,7 +4,7 @@ import DetailHeader from './components/DetailHeader';
 
 import { WithContext as ReactTags } from 'react-tag-input';
 
-import './tags.css'
+import './components/css/tags.css'
 
 const KeyCodes = {
   comma: 188,
@@ -36,11 +36,13 @@ class App extends Component {
         { id: '15', text: 'Git' },
         { id: '16', text: 'Open Source' },
         { id: '17', text: 'Cryptography' },
-      ]
+      ],
+      showError: false
     };
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAddition = this.handleAddition.bind(this);
     this.handleDrag = this.handleDrag.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleDelete(i) {
@@ -51,7 +53,7 @@ class App extends Component {
   }
 
   handleAddition(tag) {
-    this.setState(state => ({ tags: [...state.tags, tag] }));
+    this.setState(state => ({ tags: [...state.tags, tag], showError: false }));
   }
 
   handleDrag(tag, currPos, newPos) {
@@ -62,6 +64,15 @@ class App extends Component {
     newTags.splice(newPos, 0, tag);
 
     this.setState({ tags: newTags });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const { tags } = this.state;
+
+    if (tags.length === 0) {
+      this.setState({ showError: true })
+    }
   }
 
 
@@ -85,8 +96,10 @@ class App extends Component {
             inline={false} />
         </div>
 
+        <div className={"show-error container " + (this.state.showError ? '' : 'hidden')}>No Options Selected</div>
+
         <form className="signup-form container">
-          <input type="submit" className="signup-submitButton" value="Sign Me Up" />
+          <input type="submit" className="signup-submitButton" value="Sign Me Up" onClick={this.handleSubmit} />
         </form>
 
       </React.Fragment>

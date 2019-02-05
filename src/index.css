@@ -26,3 +26,13 @@ code {
   margin-bottom: 50px;
   text-align: center;
 }
+
+.hidden {
+  display:none;
+}
+
+.show-error{
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  color: red;
+}

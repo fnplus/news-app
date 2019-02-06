@@ -41,7 +41,6 @@ class App extends Component {
     };
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAddition = this.handleAddition.bind(this);
-    this.handleDrag = this.handleDrag.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -56,16 +55,6 @@ class App extends Component {
     this.setState(state => ({ tags: [...state.tags, tag], showError: false }));
   }
 
-  handleDrag(tag, currPos, newPos) {
-    const tags = [...this.state.tags];
-    const newTags = tags.slice();
-
-    newTags.splice(currPos, 1);
-    newTags.splice(newPos, 0, tag);
-
-    this.setState({ tags: newTags });
-  }
-
   handleSubmit(e) {
     e.preventDefault();
     const { tags } = this.state;
@@ -74,7 +63,6 @@ class App extends Component {
       this.setState({ showError: true })
     }
   }
-
 
   render() {
     const { tags, suggestions } = this.state;
@@ -91,7 +79,7 @@ class App extends Component {
             suggestions={suggestions}
             handleDelete={this.handleDelete}
             handleAddition={this.handleAddition}
-            handleDrag={this.handleDrag}
+            allowDragDrop={false}
             delimiters={delimiters}
             inline={false} />
         </div>

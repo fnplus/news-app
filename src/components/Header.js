@@ -8,7 +8,7 @@ class Header extends Component {
                     <div className="row">
                         <div className="col-md-12 col-sm-12">
                             <div>
-                                <a style={headerStyle} href="https://fnplus.tech">FNPLUS TECH</a>
+                                <a style={headerStyle} href="/">FNPLUS TECH</a>
                             </div>
                         </div>
                     </div>

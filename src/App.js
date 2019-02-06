@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
+
 import Header from './components/Header';
 import DetailHeader from './components/DetailHeader';
-
-import { WithContext as ReactTags } from 'react-tag-input';
-
-import './components/css/tags.css'
-
-const KeyCodes = {
-  comma: 188,
-  enter: 13,
-};
-
-const delimiters = [KeyCodes.comma, KeyCodes.enter];
+import Signup from './components/Signup';
 
 class App extends Component {
   constructor(props) {
@@ -65,30 +56,16 @@ class App extends Component {
   }
 
   render() {
-    const { tags, suggestions } = this.state;
-    let placeholder = "Choose Your Domains";
     return (
       <React.Fragment>
+
         <Header />
 
         <DetailHeader />
 
-        <div className="reacttag-container container">
-          <ReactTags tags={tags}
-            placeholder={placeholder}
-            suggestions={suggestions}
-            handleDelete={this.handleDelete}
-            handleAddition={this.handleAddition}
-            allowDragDrop={false}
-            delimiters={delimiters}
-            inline={false} />
-        </div>
-
-        <div className={"show-error container " + (this.state.showError ? '' : 'hidden')}>No Options Selected</div>
-
-        <form className="signup-form container">
-          <input type="submit" className="signup-submitButton" value="Sign Me Up" onClick={this.handleSubmit} />
-        </form>
+        <Signup tags={this.state.tags} suggestions={this.state.suggestions}
+          handleDelete={this.handleDelete} handleAddition={this.handleAddition}
+          handleSubmit={this.handleSubmit} showError={this.state.showError} />
 
       </React.Fragment>
 

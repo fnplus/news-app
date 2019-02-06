@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { WithContext as ReactTags } from 'react-tag-input';
 
-import './css/tags.css'
+import './css/tags.css';
 
 const KeyCodes = {
     comma: 188,

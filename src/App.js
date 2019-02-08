@@ -1,10 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import Header from './components/Header';
-import DetailHeader from './components/DetailHeader';
-import Signup from './components/Signup';
+import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
-import { DOMAINS } from './suggestions';
+import Header from "./components/Header";
+import DetailHeader from "./components/DetailHeader";
+import Signup from "./components/Signup";
+
+import { DOMAINS } from "./suggestions";
+
+import { Config } from "./firebase-config";
+
+var config = Config;
+firebase.initializeApp(config);
 
 class App extends Component {
   constructor(props) {
@@ -12,8 +20,23 @@ class App extends Component {
     this.state = {
       tags: [],
       suggestions: [],
-      showError: false
+      showError: false,
+      isSignedIn: false
     };
+    this.uiConfig = {
+      signInFlow: "popup",
+      signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
+      callbacks: {
+        signInSuccess: () => false
+      }
+    };
+
+    this.componentDidMount = () => {
+      firebase.auth().onAuthStateChanged(user => {
+        this.setState({ isSignedIn: !!user });
+      });
+    };
+
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAddition = this.handleAddition.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,7 +45,7 @@ class App extends Component {
   handleDelete(i) {
     const { tags } = this.state;
     this.setState({
-      tags: tags.filter((tag, index) => index !== i),
+      tags: tags.filter((tag, index) => index !== i)
     });
   }
 
@@ -35,15 +58,15 @@ class App extends Component {
     const { tags } = this.state;
 
     if (tags.length === 0) {
-      this.setState({ showError: true })
+      this.setState({ showError: true });
     }
   }
 
   componentDidMount() {
     DOMAINS.forEach(domain => {
       let temp = {
-        'id': domain,
-        'text': domain
+        id: domain,
+        text: domain
       };
       this.setState(state => ({ suggestions: [...state.suggestions, temp] }));
     });
@@ -52,15 +75,25 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-
-        <Header />
-
-        <DetailHeader />
-
-        <Signup tags={this.state.tags} suggestions={this.state.suggestions}
-          handleDelete={this.handleDelete} handleAddition={this.handleAddition}
-          handleSubmit={this.handleSubmit} showError={this.state.showError} />
-
+        {this.state.isSignedIn ? (
+          <React.Fragment>
+            <Header />
+            <DetailHeader />
+            <Signup
+              tags={this.state.tags}
+              suggestions={this.state.suggestions}
+              handleDelete={this.handleDelete}
+              handleAddition={this.handleAddition}
+              handleSubmit={this.handleSubmit}
+              showError={this.state.showError}
+            />
+          </React.Fragment>
+        ) : (
+          <StyledFirebaseAuth
+            uiConfig={this.uiConfig}
+            firebaseAuth={firebase.auth()}
+          />
+        )}
       </React.Fragment>
     );
   }

@@ -9,9 +9,11 @@ import Signup from "./components/Signup";
 
 import { DOMAINS } from "./suggestions";
 
-import { Config } from "./firebase-config";
+const config = {
+  apiKey: "AIzaSyBL6LDmX6fuIy5d35iq15jz9fW-AnwtwDI",
+  authDomain: "community-updates.firebaseapp.com"
+};
 
-var config = Config;
 firebase.initializeApp(config);
 
 class App extends Component {
@@ -27,14 +29,8 @@ class App extends Component {
       signInFlow: "popup",
       signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
       callbacks: {
-        signInSuccess: () => false
+        signInSuccessWithAuthResult: () => true
       }
-    };
-
-    this.componentDidMount = () => {
-      firebase.auth().onAuthStateChanged(user => {
-        this.setState({ isSignedIn: !!user });
-      });
     };
 
     this.handleDelete = this.handleDelete.bind(this);
@@ -70,6 +66,14 @@ class App extends Component {
       };
       this.setState(state => ({ suggestions: [...state.suggestions, temp] }));
     });
+
+    this.unregisterAuthObserver = firebase
+      .auth()
+      .onAuthStateChanged(user => this.setState({ isSignedIn: !!user }));
+  }
+
+  componentWillUnmount() {
+    this.unregisterAuthObserver();
   }
 
   render() {

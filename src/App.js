@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import DetailHeader from "./components/DetailHeader";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
+import SignIn from "./components/SignIn";
 
 import { DOMAINS } from "./suggestions";
 
@@ -112,11 +113,12 @@ class App extends Component {
           </Router>
         ) : (
           <React.Fragment>
+            <SignIn />
             <h1
               style={{
                 textAlign: "center",
                 fontFamily: "'Montserrat', sans-serif",
-                marginTop: "60px"
+                marginTop: "20px"
               }}
             >
               Sign in to continue

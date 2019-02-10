@@ -86,10 +86,14 @@ class App extends Component {
         {this.state.isSignedIn ? (
           <Router basename={process.env.PUBLIC_URL}>
             <React.Fragment>
-              <Route exact path="/" render={props => <Home />} />
               <Route
                 exact
-                path="/signup"
+                path={process.env.PUBLIC_URL + "/"}
+                render={props => <Home />}
+              />
+              <Route
+                exact
+                path={process.env.PUBLIC_URL + "/signup"}
                 render={props => (
                   <React.Fragment>
                     <DetailHeader />

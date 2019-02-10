@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
@@ -6,6 +7,7 @@ import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import Header from "./components/Header";
 import DetailHeader from "./components/DetailHeader";
 import Signup from "./components/Signup";
+import Home from "./components/Home";
 
 import { DOMAINS } from "./suggestions";
 
@@ -79,24 +81,47 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
+        <Header />
+
         {this.state.isSignedIn ? (
+          <Router>
+            <React.Fragment>
+              <Route exact path="/" render={props => <Home />} />
+              <Route
+                exact
+                path="/signup"
+                render={props => (
+                  <React.Fragment>
+                    <DetailHeader />
+                    <Signup
+                      tags={this.state.tags}
+                      suggestions={this.state.suggestions}
+                      handleDelete={this.handleDelete}
+                      handleAddition={this.handleAddition}
+                      handleSubmit={this.handleSubmit}
+                      showError={this.state.showError}
+                    />
+                  </React.Fragment>
+                )}
+              />
+            </React.Fragment>
+          </Router>
+        ) : (
           <React.Fragment>
-            <Header />
-            <DetailHeader />
-            <Signup
-              tags={this.state.tags}
-              suggestions={this.state.suggestions}
-              handleDelete={this.handleDelete}
-              handleAddition={this.handleAddition}
-              handleSubmit={this.handleSubmit}
-              showError={this.state.showError}
+            <h1
+              style={{
+                textAlign: "center",
+                fontFamily: "'Montserrat', sans-serif",
+                marginTop: "60px"
+              }}
+            >
+              Sign in to continue
+            </h1>
+            <StyledFirebaseAuth
+              uiConfig={this.uiConfig}
+              firebaseAuth={firebase.auth()}
             />
           </React.Fragment>
-        ) : (
-          <StyledFirebaseAuth
-            uiConfig={this.uiConfig}
-            firebaseAuth={firebase.auth()}
-          />
         )}
       </React.Fragment>
     );

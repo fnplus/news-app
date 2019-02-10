@@ -84,7 +84,7 @@ class App extends Component {
         <Header />
 
         {this.state.isSignedIn ? (
-          <Router>
+          <Router basename={process.env.PUBLIC_URL}>
             <React.Fragment>
               <Route exact path="/" render={props => <Home />} />
               <Route

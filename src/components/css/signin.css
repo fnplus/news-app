@@ -1,0 +1,27 @@
+.signin-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.signin-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signin-text h2 {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.signin-container {
+  padding-top: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+  .signin-text-container {
+    padding-top: 50px;
+  }
+}

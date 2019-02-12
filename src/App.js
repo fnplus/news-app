@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { HashRouter as Router, Route } from "react-router-dom";
 
 import firebase from "firebase";
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 import Header from "./components/Header";
 import DetailHeader from "./components/DetailHeader";
@@ -27,13 +26,6 @@ class App extends Component {
       suggestions: [],
       showError: false,
       isSignedIn: false
-    };
-    this.uiConfig = {
-      signInFlow: "popup",
-      signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
-      callbacks: {
-        signInSuccessWithAuthResult: () => true
-      }
     };
 
     this.handleDelete = this.handleDelete.bind(this);
@@ -107,19 +99,6 @@ class App extends Component {
           <React.Fragment>
             <Header />
             <SignIn />
-            <h1
-              style={{
-                textAlign: "center",
-                fontFamily: "'Montserrat', sans-serif",
-                marginTop: "20px"
-              }}
-            >
-              Sign in to continue
-            </h1>
-            <StyledFirebaseAuth
-              uiConfig={this.uiConfig}
-              firebaseAuth={firebase.auth()}
-            />
           </React.Fragment>
         )}
       </Router>

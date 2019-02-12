@@ -13,10 +13,12 @@ import { DOMAINS } from "./suggestions";
 
 const config = {
   apiKey: "AIzaSyBL6LDmX6fuIy5d35iq15jz9fW-AnwtwDI",
-  authDomain: "community-updates.firebaseapp.com"
+  authDomain: "community-updates.firebaseapp.com",
+  projectId: "community-updates"
 };
 
 firebase.initializeApp(config);
+var db = firebase.firestore();
 
 class App extends Component {
   constructor(props) {
@@ -31,6 +33,7 @@ class App extends Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAddition = this.handleAddition.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.get_user = this.get_user.bind(this);
   }
 
   handleDelete(i) {
@@ -51,6 +54,37 @@ class App extends Component {
     if (tags.length === 0) {
       this.setState({ showError: true });
     }
+  }
+
+  get_user(email) {
+    var docRef = db.collection("users").doc(email);
+
+    docRef
+      .get()
+      .then(doc => {
+        if (doc.exists) {
+          let data = doc.data();
+          data.newsKeywords.forEach(domain => {
+            let temp = {
+              id: domain,
+              text: domain
+            };
+            this.setState(state => ({ tags: [...state.tags, temp] }));
+          });
+          console.log("Document Found! ", doc.data());
+        } else {
+          db.collection("users")
+            .doc(email)
+            .set({
+              name: firebase.auth().currentUser.displayName,
+              email: firebase.auth().currentUser.email,
+              newsKeywords: []
+            });
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   componentDidMount() {
@@ -77,7 +111,11 @@ class App extends Component {
         {this.state.isSignedIn ? (
           <React.Fragment>
             <Header />
-            <Route exact path="/" render={props => <Home />} />
+            <Route
+              exact
+              path="/"
+              render={props => <Home get_user={this.get_user} />}
+            />
             <Route
               path="/signup"
               render={props => (

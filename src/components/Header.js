@@ -8,7 +8,7 @@ class Header extends Component {
           <div className="row">
             <div className="col-md-12 col-sm-12">
               <div>
-                <a style={headerStyle} href={process.env.PUBLIC_URL + "#/"}>
+                <a style={headerStyle} href="#/">
                   FNPLUS TECH
                 </a>
               </div>

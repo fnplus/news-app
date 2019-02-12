@@ -12,8 +12,7 @@ class Home extends Component {
           <h1>Hey {firebase.auth().currentUser.displayName}!</h1>
           <h2>Welcome to Fnplus Community</h2>
           <h4>
-            <a href={process.env.PUBLIC_URL + "/signup"}>Sign up</a> with our
-            news service to get started
+            <a href="#/signup">Sign up</a> with our news service to get started
           </h4>
           <button onClick={() => firebase.auth().signOut()}>Sign out!</button>
         </div>

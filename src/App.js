@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
@@ -87,14 +87,9 @@ class App extends Component {
         {this.state.isSignedIn ? (
           <Router basename={process.env.PUBLIC_URL}>
             <React.Fragment>
+              <Route exact path="/" render={props => <Home />} />
               <Route
-                exact
-                path={process.env.PUBLIC_URL + "/"}
-                render={props => <Home />}
-              />
-              <Route
-                exact
-                path={process.env.PUBLIC_URL + "/signup"}
+                path="/signup"
                 render={props => (
                   <React.Fragment>
                     <DetailHeader />

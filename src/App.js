@@ -81,33 +81,31 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <Header />
-
+      <Router basename={process.env.PUBLIC_URL}>
         {this.state.isSignedIn ? (
-          <Router basename={process.env.PUBLIC_URL}>
-            <React.Fragment>
-              <Route exact path="/" render={props => <Home />} />
-              <Route
-                path="/signup"
-                render={props => (
-                  <React.Fragment>
-                    <DetailHeader />
-                    <Signup
-                      tags={this.state.tags}
-                      suggestions={this.state.suggestions}
-                      handleDelete={this.handleDelete}
-                      handleAddition={this.handleAddition}
-                      handleSubmit={this.handleSubmit}
-                      showError={this.state.showError}
-                    />
-                  </React.Fragment>
-                )}
-              />
-            </React.Fragment>
-          </Router>
+          <React.Fragment>
+            <Header />
+            <Route exact path="/" render={props => <Home />} />
+            <Route
+              path="/signup"
+              render={props => (
+                <React.Fragment>
+                  <DetailHeader />
+                  <Signup
+                    tags={this.state.tags}
+                    suggestions={this.state.suggestions}
+                    handleDelete={this.handleDelete}
+                    handleAddition={this.handleAddition}
+                    handleSubmit={this.handleSubmit}
+                    showError={this.state.showError}
+                  />
+                </React.Fragment>
+              )}
+            />
+          </React.Fragment>
         ) : (
           <React.Fragment>
+            <Header />
             <SignIn />
             <h1
               style={{
@@ -124,7 +122,7 @@ class App extends Component {
             />
           </React.Fragment>
         )}
-      </React.Fragment>
+      </Router>
     );
   }
 }

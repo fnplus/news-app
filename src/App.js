@@ -53,11 +53,31 @@ class App extends Component {
 
     if (tags.length === 0) {
       this.setState({ showError: true });
+    } else {
+      let tags_list = [];
+
+      tags.forEach(domain => {
+        tags_list.push(domain.text);
+      });
+
+      db.collection("users")
+        .doc(firebase.auth().currentUser.email)
+        .set({
+          name: firebase.auth().currentUser.displayName,
+          email: firebase.auth().currentUser.email,
+          newsKeywords: tags_list
+        });
+
+      alert("Signed Up Successfully!");
+
+      window.location.href = process.env.PUBLIC_URL + "#/";
     }
   }
 
   get_user(email) {
     var docRef = db.collection("users").doc(email);
+
+    this.setState({ tags: [] });
 
     docRef
       .get()
@@ -71,7 +91,6 @@ class App extends Component {
             };
             this.setState(state => ({ tags: [...state.tags, temp] }));
           });
-          console.log("Document Found! ", doc.data());
         } else {
           db.collection("users")
             .doc(email)
@@ -128,6 +147,7 @@ class App extends Component {
                     handleAddition={this.handleAddition}
                     handleSubmit={this.handleSubmit}
                     showError={this.state.showError}
+                    get_user={this.get_user}
                   />
                 </React.Fragment>
               )}

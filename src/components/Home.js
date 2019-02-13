@@ -4,18 +4,9 @@ import firebase from "firebase";
 
 import "./css/home.css";
 
-// const config = {
-//   apiKey: "AIzaSyBL6LDmX6fuIy5d35iq15jz9fW-AnwtwDI",
-//   authDomain: "community-updates.firebaseapp.com",
-//   projectId: "community-updates"
-// };
-
-// firebase.initializeApp(config);
-// var db = firebase.firestore();
 class Home extends Component {
   componentDidMount() {
     this.props.get_user(firebase.auth().currentUser.email);
-    console.log(firebase.auth().currentUser.email);
   }
 
   render() {

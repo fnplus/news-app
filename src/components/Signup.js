@@ -14,7 +14,9 @@ const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
 class Signup extends Component {
   componentDidMount() {
-    this.props.get_user(firebase.auth().currentUser.email);
+    if (this.props.tags.length === 0) {
+      this.props.get_user(firebase.auth().currentUser.email);
+    }
   }
 
   render() {

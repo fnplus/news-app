@@ -1,17 +1,39 @@
 import React, { Component } from "react";
 
+import firebase from "firebase";
+
+import "./css/header.css";
+
 class Header extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="container">
+        <div className="container header-container">
           <div className="row">
-            <div className="col-md-12 col-sm-12">
-              <div>
-                <a style={headerStyle} href="#/">
-                  FNPLUS TECH
-                </a>
-              </div>
+            <div className="col-10">
+              <a href="/#/" className="header-logo">
+                FNPLUS TECH
+              </a>
+            </div>
+            <div className="col-2">
+              {this.props.navbar ? (
+                <div className="dropdown">
+                  <img
+                    src={process.env.PUBLIC_URL + "/images/menu.png"}
+                    alt="nav"
+                    className="dropbtn"
+                  />
+                  <div className="dropdown-content">
+                    <a href="/#/">Home</a>
+                    <a href="/#/signup">SignUp</a>
+                    <a href="/" onClick={() => firebase.auth().signOut()}>
+                      SignOut
+                    </a>
+                  </div>
+                </div>
+              ) : (
+                <div />
+              )}
             </div>
           </div>
         </div>
@@ -19,16 +41,5 @@ class Header extends Component {
     );
   }
 }
-
-const headerStyle = {
-  fontSize: "24px",
-  fontFamily: "'Montserrat', sans-serif",
-  letterSpacing: "10px",
-  fontWeight: "700",
-  color: "#000",
-  display: "block",
-  textDecoration: "none",
-  paddingTop: "40px"
-};
 
 export default Header;

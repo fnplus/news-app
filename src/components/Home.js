@@ -18,7 +18,6 @@ class Home extends Component {
           <h4>
             <a href="#/signup">Sign up</a> with our news service to get started
           </h4>
-          <button onClick={() => firebase.auth().signOut()}>Sign out!</button>
         </div>
       </div>
     );

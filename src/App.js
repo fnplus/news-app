@@ -129,7 +129,7 @@ class App extends Component {
       <Router basename={process.env.PUBLIC_URL}>
         {this.state.isSignedIn ? (
           <React.Fragment>
-            <Header />
+            <Header navbar={true} />
             <Route
               exact
               path="/"
@@ -155,7 +155,7 @@ class App extends Component {
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <Header />
+            <Header navbar={false} />
             <SignIn />
           </React.Fragment>
         )}

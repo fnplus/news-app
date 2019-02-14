@@ -11,7 +11,7 @@ class Header extends Component {
         <div className="container header-container">
           <div className="row">
             <div className="col-10">
-              <a href="/#/" className="header-logo">
+              <a href="#/" className="header-logo">
                 FNPLUS TECH
               </a>
             </div>
@@ -24,9 +24,9 @@ class Header extends Component {
                     className="dropbtn"
                   />
                   <div className="dropdown-content">
-                    <a href="/#/">Home</a>
-                    <a href="/#/signup">SignUp</a>
-                    <a href="/" onClick={() => firebase.auth().signOut()}>
+                    <a href="#/">Home</a>
+                    <a href="#/signup">SignUp</a>
+                    <a href="#" onClick={() => firebase.auth().signOut()}>
                       SignOut
                     </a>
                   </div>

@@ -24,8 +24,6 @@ class Header extends Component {
                     className="dropbtn"
                   />
                   <div className="dropdown-content">
-                    <a href="#/">Home</a>
-                    <a href="#/signup">SignUp</a>
                     <a href="#" onClick={() => firebase.auth().signOut()}>
                       SignOut
                     </a>

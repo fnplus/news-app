@@ -6,7 +6,6 @@ import firebase from "firebase";
 import Header from "./components/Header";
 import DetailHeader from "./components/DetailHeader";
 import Signup from "./components/Signup";
-import Home from "./components/Home";
 import SignIn from "./components/SignIn";
 
 import { DOMAINS } from "./suggestions";
@@ -131,12 +130,7 @@ class App extends Component {
           <React.Fragment>
             <Header navbar={true} />
             <Route
-              exact
               path="/"
-              render={props => <Home get_user={this.get_user} />}
-            />
-            <Route
-              path="/signup"
               render={props => (
                 <React.Fragment>
                   <DetailHeader />

@@ -45,12 +45,13 @@ class Signup extends Component {
         </div>
 
         <form className="signup-form container">
-          <input
+          <button
             type="submit"
-            className="signup-submitButton"
-            value="Sign Me Up"
+            className="signup-btn-fill"
             onClick={this.props.handleSubmit}
-          />
+          >
+            Sign Me Up
+          </button>
         </form>
       </React.Fragment>
     );

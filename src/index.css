@@ -13,26 +13,68 @@ code {
     monospace;
 }
 
-.signup-submitButton{
-  font-family: 'Montserrat', sans-serif;
-  color: White;
-  background-color: #333;
-  border: none;
-  font-size: 20px;
-}
-
-.signup-form{
+.signup-form {
   margin-top: 30px;
   margin-bottom: 50px;
   text-align: center;
 }
 
 .hidden {
-  display:none;
+  display: none;
 }
 
-.show-error{
+.show-error {
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: red;
+}
+
+.signup-btn-fill {
+  position: relative;
+  height: 35px;
+  width: 150px;
+  /* margin: 10px 7px; */
+  padding: 5px 5px;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #383736;
+  border: 2px #029843 solid;
+  border-radius: 2px;
+  text-transform: uppercase;
+  outline: 0;
+  overflow: hidden;
+  background: none;
+  z-index: 1;
+  cursor: pointer;
+  transition: 0.08s ease-in;
+  -o-transition: 0.08s ease-in;
+  -ms-transition: 0.08s ease-in;
+  -moz-transition: 0.08s ease-in;
+  -webkit-transition: 0.08s ease-in;
+  font-family: "Montserrat", sans-serif;
+}
+
+.signup-btn-fill:hover {
+  color: whitesmoke;
+}
+
+.signup-btn-fill:focus {
+  outline: 0;
+}
+
+.signup-btn-fill:before {
+  content: "";
+  position: absolute;
+  background: #029843;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: -1;
+  -webkit-transition: top 0.09s ease-in;
+}
+
+.signup-btn-fill:hover:before {
+  top: 0;
 }

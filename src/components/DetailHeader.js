@@ -1,23 +1,28 @@
-import React, { Component } from 'react';
-import './css/DetailHeader.css';
+import React, { Component } from "react";
+import "./css/DetailHeader.css";
 
 class DetailHeader extends Component {
-    render() {
-        return (
-            <React.Fragment>
-                <div className="container" style={{ paddingTop: "30px" }}>
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="detail-container">
-                                <div className="detail-heading">Community News</div>
-                                <div className="detail-subheading">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam lectus velit, accumsan nec nunc eu, lobortis aliquet augue. Morbi congue consequat iaculis. Mauris purus ex, posuere vitae sem id, faucibus vestibulum mauris.</div>
-                            </div>
-                        </div>
-                    </div>
+  render() {
+    return (
+      <React.Fragment>
+        <div className="container" style={{ paddingTop: "30px" }}>
+          <div className="row">
+            <div className="col-md-12">
+              <div className="detail-container">
+                <div className="detail-heading">Community News</div>
+                <div className="detail-subheading">
+                  At the speed the tech world is evolving keeping up to date
+                  with it can prove to be hard and we are here to help you. Just
+                  let us know what domains interest you the most and we'll send
+                  you trending news about it.
                 </div>
-            </React.Fragment >
-        );
-    }
+              </div>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
+    );
+  }
 }
 
 export default DetailHeader;

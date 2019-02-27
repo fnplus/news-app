@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://www.fnplus.tech/project-community-news-app/",
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "firebase": "^5.8.2",
     "firebaseui": "^3.5.2",
     "gh-pages": "^2.0.1",

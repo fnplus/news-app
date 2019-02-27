@@ -6,6 +6,7 @@ import "./css/header.css";
 
 class Header extends Component {
   render() {
+    /*eslint-disable*/
     return (
       <React.Fragment>
         <div className="container header-container">

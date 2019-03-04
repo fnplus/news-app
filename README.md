@@ -1,4 +1,16 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Community News App
+
+Frontend sign-up form for [Community News Bot](https://github.com/fnplus/project-community-news-api). Allows the user to manage and manipulate their favorite  domains to receive regular news updates. 
+
+
+
+In order to sign-up for the service you will need to sign in using your google account, all news updates will be sent to the email id associated with this account.
+
+
+
+Once signed in, you will be greeted with the sign-up form where you can choose the domains that interest you. You can pick from the options provided by us or choose your own domain. The bot scraps for news based on the key words provided by you, so make sure that they are consistent.
+
+
 
 ## Available Scripts
 
@@ -37,32 +49,13 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
 ### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+In order to make the deployment process simple I have used the [gh-pages](https://www.npmjs.com/package/gh-pages) npm package. So running the following command will deploy the app on GitHub pages.
 
-### `npm run build` fails to minify
+### `npm run deploy`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+

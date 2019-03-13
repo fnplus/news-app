@@ -71,8 +71,6 @@ class App extends Component {
         });
 
       alert("Signed Up Successfully!");
-
-      window.location.href = process.env.PUBLIC_URL + "#/";
     }
   }
 

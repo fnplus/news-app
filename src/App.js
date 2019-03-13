@@ -13,7 +13,8 @@ import { DOMAINS } from "./suggestions";
 const config = {
   apiKey: "AIzaSyBL6LDmX6fuIy5d35iq15jz9fW-AnwtwDI",
   authDomain: "community-updates.firebaseapp.com",
-  projectId: "community-updates"
+  projectId: "community-updates",
+  messagingSenderId: "38226611639"
 };
 
 firebase.initializeApp(config);
@@ -26,7 +27,8 @@ class App extends Component {
       tags: [],
       suggestions: [],
       showError: false,
-      isSignedIn: false
+      isSignedIn: false,
+      token: ""
     };
 
     this.handleDelete = this.handleDelete.bind(this);
@@ -64,7 +66,8 @@ class App extends Component {
         .set({
           name: firebase.auth().currentUser.displayName,
           email: firebase.auth().currentUser.email,
-          newsKeywords: tags_list
+          newsKeywords: tags_list,
+          token: this.state.token
         });
 
       alert("Signed Up Successfully!");
@@ -96,7 +99,8 @@ class App extends Component {
             .set({
               name: firebase.auth().currentUser.displayName,
               email: firebase.auth().currentUser.email,
-              newsKeywords: []
+              newsKeywords: [],
+              token: ""
             });
         }
       })
@@ -117,6 +121,22 @@ class App extends Component {
     this.unregisterAuthObserver = firebase
       .auth()
       .onAuthStateChanged(user => this.setState({ isSignedIn: !!user }));
+
+    // FCM Setup --- Ask for notification permission
+
+    const messaging = firebase.messaging();
+    messaging
+      .requestPermission()
+      .then(() => {
+        console.log("Notification Permission Granted!");
+        return messaging.getToken();
+      })
+      .then(token => {
+        this.setState({ token: token });
+      })
+      .catch(err => {
+        console.log("Notification Permission Denied");
+      });
   }
 
   componentWillUnmount() {

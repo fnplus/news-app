@@ -1,4 +1,5 @@
 # Community News App
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9fb43ed815b3477a9880b867fdb77ae6)](https://www.codacy.com/manual/fnplus/news-app?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fnplus/news-app&amp;utm_campaign=Badge_Grade)
 
 Frontend sign-up form for [Community News Bot](https://github.com/fnplus/project-news-api). Allows the user to manage and manipulate their favorite  domains to receive regular news updates. 
 

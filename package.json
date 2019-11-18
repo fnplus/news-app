@@ -2,7 +2,7 @@
   "name": "community-news",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://www.news.fnplus.tech",
+  "homepage": "https://news.fnplus.tech",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "firebase": "^7.4.0",

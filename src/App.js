@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { HashRouter as Router, Route } from "react-router-dom";
 
 import firebase from "firebase";
+// import { messaging } from "./init-fcm";
 
 import Header from "./components/Header";
 import DetailHeader from "./components/DetailHeader";
@@ -11,6 +12,7 @@ import SignIn from "./components/SignIn";
 import { DOMAINS } from "./suggestions";
 
 const config = {
+  appId: "1:38226611639:web:f4eb0e1549522cc9",
   apiKey: "AIzaSyBL6LDmX6fuIy5d35iq15jz9fW-AnwtwDI",
   authDomain: "community-updates.firebaseapp.com",
   projectId: "community-updates",
@@ -120,20 +122,37 @@ class App extends Component {
       .auth()
       .onAuthStateChanged(user => this.setState({ isSignedIn: !!user }));
 
+    const renderNotification = (notification, i) => <li key={i}>{notification}</li>;
+
+    const registerPushListener = pushNotification =>
+      navigator.serviceWorker.addEventListener("message", ({ data }) =>
+        pushNotification(
+          data.data
+            ? data.data.message
+            : data["firebase-messaging-msg-data"].data.message
+        )
+      );
+
     // FCM Setup --- Ask for notification permission
 
     const messaging = firebase.messaging();
+    messaging.usePublicVapidKey(
+      "BMXXuXuiGgtBPLsOlj9O8Xeg-D53bZ4xc38saTUWGCQfFnBxhEyhwU3SWxAYxp9KB_Ck8MHMeBPvb5HE9fVfuqg"
+    );
     messaging
       .requestPermission()
-      .then(() => {
+      .then(async function() {
         console.log("Notification Permission Granted!");
-        return messaging.getToken();
+        const token = await messaging.getToken();
+        console.log(token);
+        return token;
       })
       .then(token => {
         this.setState({ token: token });
       })
       .catch(err => {
         console.log("Notification Permission Denied");
+        console.log(err);
       });
   }
 
@@ -166,11 +185,11 @@ class App extends Component {
             />
           </React.Fragment>
         ) : (
-          <React.Fragment>
-            <Header navbar={false} />
-            <SignIn />
-          </React.Fragment>
-        )}
+            <React.Fragment>
+              <Header navbar={false} />
+              <SignIn />
+            </React.Fragment>
+          )}
       </Router>
     );
   }

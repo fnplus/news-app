@@ -122,6 +122,27 @@ class App extends Component {
       .auth()
       .onAuthStateChanged(user => this.setState({ isSignedIn: !!user }));
 
+    // FCM Setup --- Ask for notification permission
+    const messaging = firebase.messaging();
+    messaging.usePublicVapidKey(
+      "BMXXuXuiGgtBPLsOlj9O8Xeg-D53bZ4xc38saTUWGCQfFnBxhEyhwU3SWxAYxp9KB_Ck8MHMeBPvb5HE9fVfuqg"
+    );
+    messaging
+      .requestPermission()
+      .then(async function () {
+        console.log("Notification Permission Granted!");
+        const token = await messaging.getToken();
+        // TODO: Remove console print in production build
+        console.log("Token: " + token);
+        return token;
+      })
+      .then(token => {
+        this.setState({ token: token });
+      })
+      .catch(err => {
+        console.log("Notification Permission Denied");
+      });
+
     const renderNotification = (notification, i) => <li key={i}>{notification}</li>;
 
     const registerPushListener = pushNotification =>
@@ -132,28 +153,6 @@ class App extends Component {
             : data["firebase-messaging-msg-data"].data.message
         )
       );
-
-    // FCM Setup --- Ask for notification permission
-
-    const messaging = firebase.messaging();
-    messaging.usePublicVapidKey(
-      "BMXXuXuiGgtBPLsOlj9O8Xeg-D53bZ4xc38saTUWGCQfFnBxhEyhwU3SWxAYxp9KB_Ck8MHMeBPvb5HE9fVfuqg"
-    );
-    messaging
-      .requestPermission()
-      .then(async function() {
-        console.log("Notification Permission Granted!");
-        const token = await messaging.getToken();
-        console.log(token);
-        return token;
-      })
-      .then(token => {
-        this.setState({ token: token });
-      })
-      .catch(err => {
-        console.log("Notification Permission Denied");
-        console.log(err);
-      });
   }
 
   componentWillUnmount() {

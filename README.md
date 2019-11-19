@@ -3,9 +3,7 @@
 
 Frontend sign-up form for [Community News Bot](https://github.com/fnplus/project-news-api). Allows the user to manage and manipulate their favorite  domains to receive regular news updates. 
 
-In order to sign-up for the service you will need to sign in using your google account, all news updates will be sent to the email id associated with this account.
-
-Once signed in, you will be greeted with the sign-up form where you can choose the domains that interest you. You can pick from the options provided by us or choose your own domain. The bot scraps for news based on the key words provided by you, so make sure that they are consistent.
+In order to sign-up for the service you will need to sign in using your google account. Once signed in, you will be greeted with the sign-up form where you can choose the domains that interest you. You can pick from the options provided by us or choose your own domain. The bot scraps for news based on the key words provided by you, so make sure that they are consistent. All news updates will be sent via notifications.
 
 ## Available Scripts
 

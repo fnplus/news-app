@@ -1,6 +1,6 @@
 {
-  "name": "Community News",
-  "short_name": "Community News",
+  "name": "News by Fnplus",
+  "short_name": "FnplusNews",
   "icons": [
     {
       "src": "icons/android-chrome-192x192.png",
@@ -13,7 +13,10 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
+  "theme_color": "#029843",
   "background_color": "#ffffff",
-  "display": "standalone"
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/?utm_source=a2hs"
 }

@@ -9,7 +9,7 @@ class DetailHeader extends Component {
           <div className="row">
             <div className="col-md-12">
               <div className="detail-container">
-                <div className="detail-heading">Community News</div>
+                <div className="detail-heading">News For You</div>
                 <div className="detail-subheading">
                   At the speed the tech world is evolving keeping up to date
                   with it can prove to be hard and we are here to help you. Just

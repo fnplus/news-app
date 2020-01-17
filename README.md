@@ -1,5 +1,6 @@
 # Community News App
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9fb43ed815b3477a9880b867fdb77ae6)](https://www.codacy.com/manual/fnplus/news-app?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fnplus/news-app&amp;utm_campaign=Badge_Grade)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4011c6e4-f2b2-4a68-b8ec-e8e992da1360/deploy-status)](https://app.netlify.com/sites/fnplusnews/deploys)
 
 Frontend sign-up form for [Community News Bot](https://github.com/fnplus/news-api). Allows the user to manage and manipulate their favorite  domains to receive regular news updates. 
 

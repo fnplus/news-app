@@ -5,6 +5,11 @@
   "version": "0.1.0",
   "license": "MIT",
   "homepage": "https://news.fnplus.tech",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && lint-staged"
+    }
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -41,8 +46,8 @@
     "firebase": "^7.7.0",
     "firebaseui": "^4.4.0",
     "react": "^16.12.0",
-    "react-dnd": "^10.0.2",
-    "react-dnd-html5-backend": "^10.0.2",
+    "react-dnd": "^5.0.0",
+    "react-dnd-html5-backend": "^3.0.2",
     "react-dom": "^16.12.0",
     "react-firebaseui": "^4.1.0",
     "react-router-dom": "^5.1.2",
@@ -51,8 +56,8 @@
   },
   "devDependencies": {
     "eslint": "^6.8.0",
-    "husky": "^4.0.6",
-    "lint-staged": "^9.5.0",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.2",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1"
   }
